@@ -19,7 +19,7 @@ public class EndpointsController {
     @PostMapping("/endpoints2")
     public String createEndpoint(@RequestBody EndpointDescriptor descriptor) {
         dynamicRouteService.addDynamicRoute(descriptor);
-        return "Endpoint created";
+        return "Endpoint created " + descriptor.getId();
     }
 
     @PostMapping("/endpoints")
