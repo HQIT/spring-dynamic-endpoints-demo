@@ -3,8 +3,8 @@ package com.cloume.fkb.rest;
 import com.cloume.fkb.domain.EndpointDescriptor;
 import com.cloume.fkb.service.DynamicRouteService;
 import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.parser.OpenAPIV3Parser;
-import io.swagger.v3.parser.core.models.SwaggerParseResult;
+//import io.swagger.v3.parser.OpenAPIV3Parser;
+//import io.swagger.v3.parser.core.models.SwaggerParseResult;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
@@ -21,7 +21,7 @@ public class EndpointsController {
         dynamicRouteService.addDynamicRoute(descriptor);
         return "Endpoint created " + descriptor.getId();
     }
-
+/*
     @PostMapping("/endpoints")
     public String createEndpoint(@RequestBody String yamlContentOfOpenAPI) {
         SwaggerParseResult result = new OpenAPIV3Parser().readContents(yamlContentOfOpenAPI);
@@ -29,7 +29,7 @@ public class EndpointsController {
         //dynamicRouteService.addDynamicRoute(api.getPaths().values(), descriptor.getResponse());
         return "Endpoint created";
     }
-
+*/
     @DeleteMapping("/endpoints/{id}")
     public Mono<String> deleteEndpoint(@PathVariable("id") String id){
         dynamicRouteService.removeDynamicRoute(id);
